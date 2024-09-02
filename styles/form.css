@@ -1,0 +1,58 @@
+/************/
+/************/
+/**        **/
+/**  FORM  **/
+/**        **/
+/************/
+/************/
+
+aside {
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:min(5vh, 2em);
+	bottom:clamp(env(safe-area-inset-bottom), 2vh, 2em);
+	font-size:clamp(2.75em, 7.5vmin, 3.25em);
+}
+
+@media (prefers-reduced-motion:no-preference) {
+	aside {
+		filter:var(--filter);
+	}
+}
+
+.🎛 {
+  height:1.2em;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:.125em;
+}
+
+.🎛 .🔘 {
+	position:absolute;
+	left:-9999em;
+}
+
+.🎛 .🆗 {
+	display: none;
+}
+
+
+.🎛 .🏷 {
+	margin:0;
+	padding:.1em;
+	line-height:1em;
+	border-radius:50%;
+	filter:var(--radio-filter);
+	cursor:pointer;
+  transition: .25s;
+}
+
+.🎛 .🔘:checked + .🏷 {
+	scale:1.2;
+}
+
+.🎛 .🔘:is(:active, :focus) + .🏷 {
+	filter:var(--radio-filter-fcs);
+}

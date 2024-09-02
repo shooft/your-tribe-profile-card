@@ -1,0 +1,482 @@
+/****************/
+/****************/
+/**            **/
+/**  'T HOOFT  **/
+/**            **/
+/****************/
+/****************/
+
+.👨‍🦲 {
+  position:relative;
+	
+	width:var(--head-size);
+	aspect-ratio:4/5;
+	flex-shrink:0;
+	
+	display:grid;
+	align-content:end;
+	justify-items:center;
+	gap:4%;
+	
+	background-color:var(--head-bg);
+	background-image:
+		radial-gradient(
+			farthest-side at center bottom,
+			transparent 88%,
+			var(--head-bg-dark) 98%
+		);
+	background-size: 400% 300%;
+	background-position:50% 0%;
+	border-radius:50%/ 50% 50% 25% 25%;
+	box-shadow:0 0 1.5em var(--head-shadow);
+
+	transition:
+		gap var(--head-time-mood-change),
+		background-size var(--head-time-mood-change),
+		background-position var(--head-time-mood-change);
+}
+
+[data-mood="😀"] .👨‍🦲{
+	gap:2%;
+	background-size:200% 100%;
+	background-position:50% 0%;
+}
+
+
+
+
+
+/**************/
+/* DE GLIMMER */
+/**************/
+
+.👨‍🦲 .🌟 {
+	position:absolute;
+	inset:0;
+	z-index:500;
+	border-radius:inherit;
+
+	-webkit-mask:
+		linear-gradient(
+			red calc( (var(--head-glimmer-y-max) - var(--head-glimmer-size)/4) * 100%),
+			transparent calc( (var(--head-glimmer-y-max) + var(--head-glimmer-size)/4) * 100%)
+		);
+	mask:
+		linear-gradient(
+			red calc( (var(--head-glimmer-y-max) - var(--head-glimmer-size)/4) * 100%),
+			transparent calc( (var(--head-glimmer-y-max) + var(--head-glimmer-size)/4) * 100%)
+		);
+}
+
+.👨‍🦲 .🌟 em {
+	position:absolute;
+	left:calc( 
+			( 
+				clamp(
+					var(--head-glimmer-x-min), 
+					var(--head-light-x, var(--head-light-x-default)), 
+					var(--head-glimmer-x-max)
+				) 
+				- var(--head-glimmer-size) / 2 
+			) * 100%
+		);
+	top:calc( 
+			( 
+				clamp(
+					var(--head-glimmer-y-min), 
+					var(--head-light-y, var(--head-light-y-default)), 
+					var(--head-glimmer-y-max)
+				)
+				- var(--head-glimmer-size) / 2 
+			) * 100%
+		);
+
+	width:calc(var(--head-glimmer-size) * 100%);
+	aspect-ratio:1/1;
+
+	filter:blur(2px);
+	-webkit-mask:radial-gradient(closest-side circle, #f00c 25%,#f003);
+	mask:radial-gradient(closest-side circle, #f00c 25%,#f003);
+
+	cursor:grab;
+
+	transition: filter var(--head-glimmer-time-filter);
+	animation:🌟 var(--head-glimmer-time-rotate) linear infinite;
+}
+
+.👨‍🦲 .🌟 em:focus-visible {
+	outline:none;
+	filter:none;
+}
+
+.👨‍🦲.moving .🌟 em {
+	transition:var(--head-glimmer-time-move);
+}
+
+.👨‍🦲.dragging,
+.👨‍🦲.dragging *,
+.👨‍🦲.dragging .🌟,
+.👨‍🦲.dragging .🌟 em {
+	cursor:grabbing;
+} 
+
+.👨‍🦲[data-mood="😀"] .🌟 em {
+	animation-duration:var(--head-glimmer-time-rotate-happy);
+}
+
+@keyframes 🌟 {
+	to {
+		transform:rotate(1turn);
+	}
+}
+
+.👨‍🦲 .🌟 em::before,
+.👨‍🦲 .🌟 em::after {
+	content:"";
+	position:absolute;
+	inset:0;
+	background-color:var(--head-glimmer-clr);
+	transform:rotate(var(--ry, 0deg)) skew(25deg, 25deg) scale(.5);
+}
+
+.👨‍🦲 .🌟 em::after {
+	--ry:90deg;
+}
+
+
+
+
+
+/***********/
+/* DE OGEN */
+/***********/
+
+.👨‍🦲 .👀 {
+	margin:0; padding:0;
+	list-style:none;
+	
+	grid-area:1 / 1;
+	justify-self:stretch;
+	align-self:end;
+	margin-bottom:20%;
+	z-index:200;
+	
+	display:flex;
+	justify-content:center;
+	gap:4%;
+		
+	transition:var(--head-time-mood-change);
+}
+
+/* EEN OOG */
+.👨‍🦲 .👁 {
+	position:relative;
+	width:33%;
+	aspect-ratio:2/1;
+
+	background-color:var(--head-oog-wit-bg);
+	background-image:radial-gradient(
+		circle, 
+		var(--head-oog-pupil-bg) calc(25% - .5px), 
+		var(--clr-eye, var(--head-oog-iris-bg)) calc(25% + .5px) calc(55% - .5px), 
+		transparent calc(25% + .5px)
+	);
+	background-size:80% 160%;
+	background-position:center 80%;
+	background-repeat:no-repeat;
+
+	border-radius:50% / 20% 20% 80% 80%;
+	box-shadow:0 .375em 0 var(--head-oog-shadow);
+
+	transform:scaleX(var(--sc, 1)) rotate(var(--r, -5deg));
+	transition:var(--head-time-mood-change);
+}
+
+.👨‍🦲 .👁 + .👁 {
+	--sc:-1;
+}
+
+[data-mood="😦"] .👁 {
+	aspect-ratio:4/3;
+	border-radius:50%;
+	background-size:75% 140%;
+	background-position:center -10%;
+}
+
+[data-mood="😠"] .👁 {
+	--clr-eye:var(--head-oog-iris-bg-boos);
+	--r:10deg;
+	aspect-ratio:8/3;
+	background-position:center top;
+}
+
+[data-mood="😮"] .👀 {
+	gap:12%;
+}
+
+[data-mood="😮"] .👁 {
+	width:27.5%;
+	aspect-ratio:1/1;
+	background-size:100% 100%;
+	background-position:center;
+	border-radius:50%;
+}
+
+[data-mood="😀"] .👁 {
+	--r:-15deg;
+	border-radius:50%;
+	background-size:80% 160%;
+	background-position:center 40%;
+}
+
+/* DE WENKBRAUWEN */
+.👨‍🦲 .👁::before {
+	content:"";
+	position:absolute;
+	left:0; top:0;
+	width:75%;
+	aspect-ratio:15/4;
+	
+	background-color:var(--head-wenkbrouw-bg);
+	border-radius:100% 0 20% 20% / 100% 50% 50% 0;
+	transform:translate(var(--tx, 10%), var(--ty, -175%)) rotate(var(--r, -5deg));
+	transition:var(--head-time-mood-change);
+}
+
+.👨‍🦲 .👁 + .👁::before {
+	background-color: rgba(255 255 204 /.75);
+}
+
+[data-mood="😦"] .👁::before {
+	--tx:5%;
+	--ty:-225%;
+	--r:-15deg;
+}
+
+[data-mood="😠"] .👁::before {
+	--ty:-200%;
+	--r:20deg;
+}
+
+[data-mood="😮"] .👁::before {
+	--tx:-10%;
+	--ty:-275%;
+	--r:-20deg;
+}
+
+[data-mood="😀"] .👁::before {
+	--tx:5%;
+	--ty:-225%;
+	--r:-20deg;
+}
+
+/* DE HIGHLIGHTS */
+/* container */
+.👨‍🦲 .⭐ {
+	--maat:20%;
+	--top:0%;
+
+	--left:calc(var(--head-highlight-x-limit) + (100% - var(--head-highlight-x-limit) * 2) * var(--head-light-x, var(--head-light-x-default)));
+	
+	position:absolute;
+	left:calc(var(--left) - var(--maat) / 2);
+	top:var(--top);
+	
+	display:block;
+	width:var(--maat);
+	aspect-ratio:1/1;
+	
+	transition:
+		top var(--head-time-mood-change), 
+		transform var(--head-time-mood-change), 
+		width var(--head-time-mood-change);
+}
+
+.👨‍🦲 .👁 + .👁 .⭐ {
+	left:calc(100% - var(--left) - var(--maat) / 2);
+}
+
+.👨‍🦲.moving .⭐ {
+	transition:var(--head-highlights-time-move);
+}
+
+[data-mood="😦"] .⭐ {
+	--top:40%;
+}
+
+[data-mood="😠"] .⭐ {
+	--top:10%;
+}
+
+[data-mood="😮"] .⭐ {
+	--maat:25%;
+	--top:27%;
+	--left-start:30%;
+}
+
+[data-mood="😀"] .⭐ {
+	--top:10%;
+}
+
+/* de actual highlight */
+.👨‍🦲 .⭐::after {
+	content:"";
+	position:absolute;
+	inset:0;
+	background-color:var(--head-highlight-bg);
+	clip-path:polygon(50% 0, 61.2% 34.5%, 97.6% 34.5%, 68.2% 55.9%, 79.4% 90.4%, 50% 69%, 20.6% 90.4%, 31.8% 55.9%, 2.4% 34.5%, 38.8% 34.5%); /* ⭐ */
+	animation:⭐ var(--head-highlight-time-rotate) infinite linear;
+	transition:var(--head-time-mood-change);
+}
+
+.👨‍🦲 .👁 + .👁 .⭐::after {
+	animation-direction:reverse;
+}
+
+@keyframes ⭐ {
+	to {
+		transform:rotate(1turn);
+	}
+}
+
+@keyframes ⚡ {
+	to {
+		transform:scale(1.5);
+	}
+}
+
+[data-mood="😠"] .⭐::after,
+[data-mood="😠"] .👁 + .👁 .⭐::after{
+	clip-path:polygon(50% 0, 50% 40%, 70% 40%, 50% 100%, 50% 100%, 50% 60%, 50% 60%, 50% 60%, 30% 60%, 30% 60%); /* ⚡ */
+	animation-name:⚡;
+	animation-duration:var(--head-highlight-time-flash);
+	animation-direction:alternate;
+}
+
+[data-mood="😀"] .⭐::after {
+	animation-duration:var(--head-highlight-time-spin);
+}
+
+
+
+
+
+/***********/
+/* DE NEUS */
+/***********/
+
+.👨‍🦲 .👃 {
+	z-index:300;
+	grid-area:1 / 1;
+	transform:
+		translateX(-5%)
+		rotate(10deg)
+		skew(-15deg, -5deg);
+
+	width:25%;
+	aspect-ratio:1/2;
+	
+	background-image:
+		linear-gradient(
+			67.5deg, 
+			var(--head-neus-bg) calc(50% + .15em),
+			transparent 0%
+		);
+
+	border-radius:10% 0 10% 50% / 50%;
+	box-shadow:inset .25em -.25em 0 var(--head-neus-shadow);
+}
+
+
+
+
+
+/***********/
+/* DE MOND */
+/***********/
+
+.👨‍🦲 .👄 {
+	z-index:700;
+
+	width:10%;
+	aspect-ratio:2/1;
+	margin-bottom:1em;
+
+	background-color:var(--head-mond-bg);
+	border-radius:20% 80% 80% 20% / 40% 50% 50% 40%;
+	
+	transition:var(--head-time-mood-change);
+}
+
+[data-mood="😦"] .👄 {
+	width:24%;
+	aspect-ratio:5/2;
+	border-radius:50% 50% 20% 20% / 60% 60% 40% 40%;
+}
+
+[data-mood="😠"] .👄 {
+	width:12%;
+	aspect-ratio:3/1;
+	border-radius:50% 50% 0 0 / 60% 60% 0 0;
+}
+
+[data-mood="😮"] .👄 {
+	width:6%;
+	aspect-ratio:4/5;
+	border-radius:50%;
+}
+
+[data-mood="😀"] .👄 {
+	width:85%;
+	aspect-ratio:8/5;
+	border-radius:5% 5% 50% 50% / 40% 40% 57.5% 57.5%;
+	box-shadow:inset 0 1em 1.5em -.5em var(--head-mond-shadow);
+	margin-bottom:.6em;
+}
+
+
+
+
+
+/***********/
+/* DE OREN */
+/***********/
+
+.👨‍🦲 .👂 {
+	position: absolute;
+	top:43%;
+	
+	width:8%;
+	aspect-ratio:1/4;
+	
+	transform-origin:right center;
+	transform:rotateZ(var(--r, -7.5deg)) scalex(1);
+	
+	appearance:none;
+	background-color:inherit;
+	border:none;
+	border-radius:1em;
+	outline:none;
+	
+	text-align:center;
+}
+
+.👨‍🦲 .👂 {
+	right:98%;
+}
+
+.👨‍🦲 .👂 + .👂 {
+	--r:7.5deg;
+	left:98%;
+	transform-origin:left center;
+}
+
+[data-mood="😀"] .👂 {
+    animation:👂 var(--head-oren-time-flap) infinite alternate;
+}
+
+@keyframes 👂 {
+  to {
+		transform:rotateZ(var(--r, -7.5deg)) scalex(1.25);
+	}
+}

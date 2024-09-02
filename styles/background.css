@@ -1,0 +1,46 @@
+/**********************/
+/**********************/
+/**                  **/
+/**  DE ACHTERGROND  **/
+/**                  **/
+/**********************/
+/**********************/
+
+html {
+	background-color:var(--bg-body-dark);
+}
+
+body {
+	background-color:var(--bg-body);
+
+  background-image:
+    radial-gradient(
+      closest-side circle,
+      transparent min(50vmin, 16em),
+      var(--bg-body-dark) min(75vmin, 48em)
+    ),
+    radial-gradient(
+      closest-side,
+      transparent,
+      var(--bg-body-dark) 75% 124%,
+      transparent 125%
+    ),
+    radial-gradient(
+      closest-side,
+      transparent,
+      var(--bg-body-dark) 75% 124%,
+      transparent 125%
+    );
+
+  background-size:
+    cover,
+    5em 5em,
+    5em 5em;
+
+  background-position:
+    50% 50%,
+    50% 50%,
+    calc(50% + 2.5em) calc(50% + 2.5em);
+
+	background-attachment:fixed;
+}

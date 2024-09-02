@@ -1,59 +1,90 @@
 <!DOCTYPE html>
 <html lang="nl">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FDND Visitekaartje</title>
-    <link rel="stylesheet" href="styles/style.css">
-  </head>
-  <body>
-    
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Sanne sinds 1971</title>
+  
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/background.css">
+  <link rel="stylesheet" href="styles/cube.css">
+  <link rel="stylesheet" href="styles/head.css">
+  <link rel="stylesheet" href="styles/form.css">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+</head>
+<body>
+
+  <main>
+    <!-- de kubus -->
     <article>
       
-      <header>
+      <!-- voorkant -->
+      <section>
+        <h1>Sanne</h1>
         
-        <h1>Jane Doe</h1>
+        <header class="👨‍🦲">
+          
+          <aside class="🌟">
+            <em tabindex=0></em>
+          </aside>
+          
+          <ul class="👀">
+              <li class="👁">
+                  <em class="⭐"></em>
+              </li>
+              <li class="👁">
+                  <em class="⭐"></em>
+              </li>
+          </ul>
+          
+          <strong class="👃"></strong>
+          <output class="👄"></output>
+          <input class="👂" type="text">
+          <input class="👂" type="text">
+        </header>
         
-        <p><em>Creatieve Frontend Developer in spé</em></p>
-        
-        <button>
-          <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <title>Wijzig layout</title>
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M4 8v-2a2 2 0 0 1 2 -2h2"></path>
-            <path d="M4 16v2a2 2 0 0 0 2 2h2"></path>
-            <path d="M16 4h2a2 2 0 0 1 2 2v2"></path>
-            <path d="M16 20h2a2 2 0 0 0 2 -2v-2"></path>
-          </svg>
-          <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M15 19v-2a2 2 0 0 1 2 -2h2"></path>
-            <path d="M15 5v2a2 2 0 0 0 2 2h2"></path>
-            <path d="M5 15h2a2 2 0 0 1 2 2v2"></path>
-            <path d="M5 9h2a2 2 0 0 0 2 -2v-2"></path>
-          </svg>
-        </button>
-        
-      </header>
-  
-      <img src="assets/creative-coder.png" alt="" width="800" height="800">
-
-      <dl>
-        <dt>HTML</dt>
-        <dd>🏆🏆🏆</dd>
-        
-        <dt>CSS</dt>
-        <dd>🏆🏆</dd>
-        
-        <dt>JavaScript</dt>
-        <dd>🏆🏆🏆🏆</dd>
-      </dl>
-  
-      <p>Het WEB is te gek! <br> Met HTML, CSS en JS kan ik vette, interactieve web apps maken.</p>
+      </section>
+      
+      <!-- linkerkant -->
+      <section aria-hidden="true"></section>
+      
+      <!-- rechterkant -->
+      <section aria-hidden="true"></section>
+      
+      <!-- achterkant -->
+      <section aria-label="Info over Sanne">
+        <p>Fervent <strong>CSS-knutselaar</strong>, docent bij <abbr title="Communication and Multimedia Design" lang="en">CMD</abbr> en <abbr title="Frontend Development and Design" lang="en">FDND</abbr>, sporadisch ontwerper en onverdienstelijk 🏌️golfer.</p>
+        <p>Nada social media en co, <a href="mailto:sanne@sinds1971.nl?subject=Howdy">e-mail</a> it is. ©<time datetime="1971"><a href="https://www.sinds1971.nl/">1971</a></time> Mimi & Henk (Amsterdam).</p>
+      </section>
       
     </article>
+  </main>
 
-    <script src="scripts/script.js"></script>
-    
-  </body>
+
+  <!-- de mood opties -->
+  <aside>
+    <form class="🎛">
+      <input type="radio" class="🔘" name="😑" value="😞" id="😞" checked=true>
+      <label class="🏷" for="😞">😞</label>
+      
+      <input type="radio" class="🔘" name="😑" value="😦" id="😦">
+      <label class="🏷" for="😦">😦</label>
+      
+      <input type="radio" class="🔘" name="😑" value="😠" id="😠">
+      <label class="🏷" for="😠">😠</label>
+      
+      <input type="radio" class="🔘" name="😑" value="😮" id="😮">
+      <label class="🏷" for="😮">😮</label>
+      
+      <input type="radio" class="🔘" name="😑" value="😀" id="😀">
+      <label class="🏷" for="😀">😀</label>
+      
+      <button type="submit" class="🆗">change mood</button>
+    </form>
+  </aside>
+
+  <script defer src="./scripts/script.js"></script>
+</body>
 </html>

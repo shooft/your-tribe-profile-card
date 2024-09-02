@@ -1,8 +1,4 @@
-# Visitekaartje
-
-Ontwerp en maak met HTML, CSS en JS een visitekaartje.
-
-De instructie van deze leertaak vind je in: [INSTRUCTIONS](https://github.com/fdnd-task/your-tribe-profile-card/blob/main/docs/INSTRUCTIONS.md)
+> Fork deze leertaak en ga aan de slag, de instructie vind je in: [docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)
 
 ## Licentie
 
