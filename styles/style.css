@@ -1,0 +1,137 @@
+/******************/
+/******************/
+/**              **/
+/**  CUST PROPS  **/
+/**              **/
+/******************/
+/******************/
+
+:root {
+  color-scheme:light dark;
+
+  /* hooft */
+	--head-size:10em;
+	--head-time-mood-change:1s;
+	--head-bg:bisque;
+	--head-bg-dark:#ffb699;
+	--head-shadow:crimson;
+
+	--head-light-x-default:.675;
+	--head-light-y-default:.175;
+
+	--head-glimmer-x-min:.17;
+	--head-glimmer-x-max:calc(1 - var(--head-glimmer-x-min));
+	--head-glimmer-y-min:.08;
+	--head-glimmer-y-max:.225;
+	--head-glimmer-time-rotate:10s;
+	--head-glimmer-time-rotate-happy:.5s;
+	--head-glimmer-time-filter:.3s;
+	--head-glimmer-time-move:.15s;
+	--head-glimmer-size:.2;
+	--head-glimmer-clr:white;
+
+	--head-balkje-time-mood-change:1s;
+	--head-balkje-time-fcs:.3s;
+	--head-balkje-time-correct:1s;
+	--head-balkje-time-incorrect:.25s;
+	--head-balkje-bg:black;
+	--head-balkje-clr:salmon;
+	--head-balkje-placeholder-clr:transparent;
+	--head-balkje-placeholder-clr-hvr:#9996;
+	--head-balkje-placeholder-clr-fcs:#999;
+	--head-balkje-bg-correct:salmon;
+
+	--head-oog-wit-bg:white;
+	--head-oog-iris-bg:steelblue;
+	--head-oog-iris-bg-boos:crimson;
+	--head-oog-pupil-bg:black;
+	--head-oog-shadow:burlywood;
+
+	--head-wenkbrouw-bg:LemonChiffon;
+
+	--head-highlight-x-limit:36%;
+	--head-highlight-time-move:.15s;
+	--head-highlight-time-rotate:10s;
+	--head-highlight-time-flash:.5s;
+	--head-highlight-time-spin:1s;
+	--head-highlight-bg:white;
+
+	--head-neus-bg:bisque;
+	--head-neus-shadow:burlywood;
+
+	--head-mond-bg:salmon;
+	--head-mond-shadow:crimson;
+
+	--head-oren-time-flap:.05s;
+
+  /* achtergrond */
+	--bg-body:#ddd;
+	--bg-body-dark:#ccc;
+	
+  /* kubus */
+	--size-kubus:20em;
+	--size-ritme:1.5em;
+	
+	--mask:
+		repeating-radial-gradient(
+			transparent 0 var(--size-ritme),
+			red var(--size-ritme) calc(var(--size-ritme) * 2)
+		),
+		radial-gradient(
+			transparent calc(var(--size-ritme) * 5),
+			red calc(var(--size-ritme) * 5)
+		);
+	
+	--filter:drop-shadow(0 1rem 1rem #0006);
+
+  /* form */
+  --radio-filter:
+    hue-rotate(-45deg)
+    saturate(.75);
+  --radio-filter-fcs:
+    hue-rotate(-45deg)
+    saturate(1)
+    drop-shadow(0 0 .01em steelblue)
+    drop-shadow(0 0 .02em steelblue)
+    drop-shadow(0 0 .03em steelblue)
+    drop-shadow(0 0 .04em steelblue)
+    drop-shadow(0 0 .05em steelblue);
+}
+
+@media (prefers-color-scheme:dark) {
+	:root{
+    --bg-body:#444;
+		--bg-body-dark:#333; 
+		
+		--filter:drop-shadow(0 1rem 1rem #0009);
+	}
+}
+
+
+
+*, *::after, *::before {
+  box-sizing:border-box;
+}
+
+html {
+	font-size:min(4.27dvmin, 1em);
+	width:100%;
+}
+
+body {
+	width:100%;
+	min-height:100dvh;
+
+	margin:0;
+  padding:1em	0em;
+	
+	display:grid;
+	place-items:center;
+  place-content:center;
+}
+
+@media (prefers-reduced-motion:no-preference) {
+	html, body {
+		overflow:hidden;
+	}
+}
